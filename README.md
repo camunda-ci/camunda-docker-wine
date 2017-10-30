@@ -1,9 +1,8 @@
-# camunda wine
+# Camunda Wine
 
-Wine docker image for Jenkins CI builds based on [camunda-ci-base-ubuntu][].
+Wine docker image for Jenkins CI builds based on [camunda-ci-base-centos][].
 
 # Packages
   - wine
-  - nvm with latest stable installed
 
-[camunda-ci-base-ubuntu]: https://github.com/camunda-ci/camunda-docker-ci-base-ubuntu
+[camunda-ci-base-centos]: https://github.com/camunda-ci/camunda-docker-ci-base-centos

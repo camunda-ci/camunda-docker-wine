@@ -1,6 +1,6 @@
 # image settings for the docker image name, tags and
 # container name while running
-IMAGE_NAME=registry.camunda.com/camunda-wine
+IMAGE_NAME=gcr.io/ci-30-162810/wine
 TAGS=latest
 NAME=wine
 
@@ -54,8 +54,8 @@ daemon:
 	$(DOCKER) run -d $(OPTS) $(IMAGE)
 
 # start interactive container with bash
-bash:
-	$(DOCKER) run --rm -i $(OPTS) $(IMAGE) /bin/bash
+shell:
+	$(DOCKER) run --rm --entrypoint=/bin/bash -i $(OPTS) $(IMAGE) --
 
 # remove container by name
 rmf:

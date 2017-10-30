@@ -1,15 +1,8 @@
-FROM registry.camunda.com/camunda-ci-base-ubuntu:latest
+FROM gcr.io/ci-30-162810/chrome:v0.1.2
 
-# install wine and xvfb
-RUN dpkg --add-architecture i386
-RUN install-packages.sh wine
-
-USER camunda
-
-# install nvm
-RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.29.0/install.sh | bash
-
-# install stable node
-RUN bash -c 'source /home/camunda/.nvm/nvm.sh && nvm install stable && nvm alias default stable'
-
-USER root
+# install wine
+RUN yum -y install https://harbottle.gitlab.io/wine32/7/i386/wine32-release.rpm && \
+    yum -y install yum-plugin-versionlock && \
+    yum versionlock add google-chrome-stable && \
+    yum versionlock add wget && \
+    install-packages.sh wine.i686 libXScrnSaver gtk3
