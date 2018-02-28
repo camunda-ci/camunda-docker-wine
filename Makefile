@@ -54,7 +54,7 @@ daemon:
 	$(DOCKER) run -d $(OPTS) $(IMAGE)
 
 # start interactive container with bash
-bash:
+shell:
 	$(DOCKER) run --rm -i $(OPTS) $(IMAGE) /bin/bash
 
 # remove container by name
@@ -67,4 +67,4 @@ rmi:
 		$(DOCKER) rmi $(IMAGE_NAME):$$tag; \
 	done
 
-.PHONY: build pull pull-from push publish run daemon bash rmf rmi
+.PHONY: build pull pull-from push publish run daemon shell rmf rmi
